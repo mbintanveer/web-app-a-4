@@ -12,8 +12,7 @@ exports.create = (req, res) => {
   // Create a Department
   const department = new Department({
     title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    description: req.body.description
   });
 
   // Save Department in the database
@@ -128,16 +127,4 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published Departments
-exports.findAllPublished = (req, res) => {
-  Department.find({ published: true })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving departments."
-      });
-    });
-};
+

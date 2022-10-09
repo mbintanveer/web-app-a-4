@@ -9,9 +9,6 @@ module.exports = app => {
   // Retrieve all Departments
   router.get("/", departments.findAll);
 
-  // Retrieve all published Departments
-  router.get("/published", departments.findAllPublished);
-
   // Retrieve a single Department with id
   router.get("/:id", departments.findOne);
 
